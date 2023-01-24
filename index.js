@@ -5,6 +5,7 @@ const authRoute=require('./routes/auth');
 const userRoute=require('./routes/user');
 const postRoute=require('./routes/post');
 const messageRoute=require('./routes/message');
+const catRoute=require('./routes/category');
 
 const app=express();
 dotenv.config();
@@ -19,6 +20,7 @@ app.use('/api/auth',authRoute);
 app.use('/api/user',userRoute);
 app.use('/api/posts',postRoute);
 app.use('/api/messages',messageRoute)
+app.use('/api/categories',catRoute);
 app.listen("3000",()=>{
     console.log('Backend is running');
 })
