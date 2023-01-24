@@ -6,6 +6,33 @@ const userRoute=require('./routes/user');
 const postRoute=require('./routes/post');
 const messageRoute=require('./routes/message');
 const catRoute=require('./routes/category');
+const multer=require('multer');
+
+
+const storage = multer.diskStorage({
+    // to locate destination of a file which is being uploaded
+    destination: function(res, file, callback){
+        callback(null,'images');
+    },
+
+    // add back the extension to the file name
+    filename: function(res, file, callback){
+        callback(null, Date.now() + file.originalname);
+    },
+
+})
+
+// upload parameters for multer for uploading images
+const upload = multer({
+    // multer will only accept files with these extensions
+    storage: storage,
+    limits:{
+        fileSize: 1024* 1024* 3,
+    },
+})
+app.post('/api/upload', upload.single('image'), async(req, res)=>{
+    res.status(200).json("Image uploaded successfully")
+})
 
 const app=express();
 dotenv.config();
