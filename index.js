@@ -48,6 +48,7 @@ app.use('/api/user',userRoute);
 app.use('/api/posts',postRoute);
 app.use('/api/messages',messageRoute)
 app.use('/api/categories',catRoute);
-app.listen("3000",()=>{
+let port=process.env.PORT || 5000;
+app.listen(port,()=>{
     console.log('Backend is running');
 })
