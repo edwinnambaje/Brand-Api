@@ -1,10 +1,16 @@
 const Post=require('../models/Posts');
+const cloudinary=require("../helpers/cloudinary");
 
 exports.creatPost=async(req,res)=>{
-    const newPost=new Post(req.body);
     try {
-        const savePost=await newPost.save();
-        res.status(200).json(savePost);
+        const result = await cloudinary.uploader.upload(req.file.path);
+        const post = new Post({
+            title:req.body.title,
+            desc:req.body.desc,
+            image:result.secure_url,
+        });
+        await post.save();
+        res.status(201).json(post);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -12,40 +18,30 @@ exports.creatPost=async(req,res)=>{
 exports.updatPost=async(req,res)=>{
     try {
         const post=await Post.findById(req.params.id);
-        if(post.username === req.body.username){
-            try {
-                const updatedPost=await Post.findByIdAndUpdate(req.params.id,{
-                    $set:req.body
-                },{new:true})
-                res.status(200).json(updatedPost);
-            } catch (error) {
-                res.status(401).json(error)
-            }
+        if(!post) return res.status(404).json({status:"fail",error:"The blog is not found"})
+        await cloudinary.uploader.destroy(blog.image);
+        const result = await cloudinary.uploader.upload(req.file.path);
+        const updatedBlog = await Post.findByIdAndUpdate(req.params.id,{$set:{
+            title:req.body.title ? req.body.title : post.title,
+            description:req.body.desc ? req.body.desc : post.desc,
+            image:result.secure_url
+          }},{new:true});
+          res.status(200).json({
+            status:"success",
+            data:updatedBlog
+          });
+        } catch (error) {
+          res.status(500).json({status:"error", error: error.message });
         }
-        else{
-            res.status(500).json("Update only your post")
-        }
-    } catch (error) {
-        res.status(401).json(error)
-    }
 }
 exports.deletPost=async(req,res)=>{
     try {
-        const post=await Post.findById(req.params.id);
-        if(post.username === req.body.username){
-            try {
-                await post.delete();
-                res.status(200).json("Post has been deleted");
-            } catch (error) {
-                res.status(401).json(error)
-            }
-        }
-        else{
-            res.status(500).json("Delete only your posts")
-        }
-    } catch (error) {
-        res.status(401).json(error)
-    }
+        await Post.findByIdAndDelete(req.params.id);
+        res.status(200).json({status:"success",data:null,message:"the blog deleted"});  
+      } 
+      catch (error) {
+          res.status(401).json({status:"error",error:error.message})
+      }
 }
 exports.gettPost=async(req,res)=>{
     try {
