@@ -8,22 +8,11 @@ const PostSchema=new mongoose.Schema({
     },
     desc:{
         type:String,
-        required:true,
     },
-    username:{
-        type:String,
-        required:true,
+    image: {
+        type: String,
     },
-    photo:{
-        type:String,
-        required:false
-    },
-    categories:{
-        type:Array,
-        required:false
-    }
 },{
     timestamps:true}
 );
-
 module.exports=mongoose.model('Post',PostSchema);

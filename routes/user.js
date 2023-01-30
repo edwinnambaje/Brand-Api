@@ -4,6 +4,6 @@ const auth=require('../middleware/auth');
 
 router.put('/update/:id',auth.verifyTokenAndRole,UserController.updatUser);
 router.delete('/delete/:id',auth.verifyTokenAndRole,UserController.deletUser);
-router.get('/:id',auth.verifyToken,UserController.gettUser);
+router.get('/:id',auth.verifyTokenAndRole,UserController.gettUser);
 router.get('/',auth.verifyToken,UserController.gettAll);
 module.exports=router;

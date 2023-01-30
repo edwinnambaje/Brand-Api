@@ -2,8 +2,11 @@ const verify=require('../helpers/jwt')
 
 const verifyToken = (req,res,next) =>{
     try {
-        const authHeader = req.headers.token;
-        const token = authHeader && authHeader.split(' ')[1];
+        const authHeader = req.headers["authorization"];
+        if(!authHeader){
+            return res.status(401).json({status:"error",error:"You are not authenticated please"});
+        }
+        const token = authHeader.split(' ')[1];
         if(!token) return res.status(401).json("You are not Authenticated!");
         const verified = verify.verify(token);
         req.user = verified;
