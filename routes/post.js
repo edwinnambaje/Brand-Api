@@ -1,18 +1,18 @@
 const PostController = require('../controllers/postController');
 const router=require('express').Router();
-const User=require('../models/User');
-const Post=require('../models/Posts');
+const auth=require('../middleware/auth');
+const upload=require('../helpers/multer')
 
 
 //create
-router.post('/',PostController.creatPost);
+router.post('/',upload.upload.single('image'),auth.verifyTokenAndRole,PostController.creatPost);
+//get all
+router.get('/all',auth.verifyToken,PostController.gettAll);
 //update
-router.put('/:id',PostController.updatPost);
+router.put('/update/{id}',auth.verifyTokenAndRole,PostController.updatPost);
 //delete
-router.delete('/:id',PostController.deletPost);
-//Get
-router.get('/:id',PostController.gettPost);
-//GetAll
-router.get('/',PostController.gettAll);
+router.delete('/delete/{id}',auth.verifyTokenAndRole,PostController.deletPost);
+//Get by id
+router.get('/{id}',auth.verifyToken,PostController.gettPost);
 
 module.exports=router;
