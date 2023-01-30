@@ -1,6 +1,5 @@
 const Message=require('../models/Message');
 
-
 exports.creatMessage=async(req,res)=>{
     const newMessage=new Message(req.body);
     try {
