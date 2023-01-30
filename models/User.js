@@ -8,17 +8,16 @@ const UserSchema=new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     password:{
         type:String,
         required:true,
     },
-    profilePic:{
+    role:{
         type:String,
-        default:''
-    },
+        default:'user'
+    }
 },{
     timestamps:true}
 );
