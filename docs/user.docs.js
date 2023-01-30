@@ -34,12 +34,12 @@ requestBody:{
                     username:{
                         type:"string",
                         description:"user name",
-                        example:"joseph250"
+                        example:"diamond"
                     },
                     email:{
                         type:"string",
                         description:"user email",
-                        example:"joseph250@gmail.com"
+                        example:"diamond@gmail.com"
                     },
                     password:{
                         type:"string",
@@ -84,7 +84,7 @@ requestBody:{
                     email:{
                         type:"string",
                         description:" user email",
-                        example:"joseph250@gmail.com"
+                        example:"diamond@gmail.com"
                     },
                     password:{
                         type:"string",
@@ -204,7 +204,7 @@ requestBody:{
                     email:{
                         type:"string",
                         description:"user email",
-                        example:"edwin@gmail.com"
+                        example:"diamond@gmail.com"
                     },
                     password:{
                         type:"string",

@@ -1,4 +1,4 @@
-const listAllContacts = {
+const listAllMessage = {
     tags:['Message'],
     description:"List all Messages",
     security: [
@@ -100,7 +100,7 @@ const sendMessage = {
     }
 }
 
-const deleteContactById = {
+const deleteMessageById = {
     tags:['Message'],
     description:"Delete the message by id",
     parameters:[
@@ -142,9 +142,9 @@ exports.messageRouteDocs = {
         get:messageById
     },
     "/api/messages":{
-        get:listAllContacts
+        get:listAllMessage
     },
     "/api/messages/delete/{id}":{
-        delete:deleteContactById
+        delete:deleteMessageById
     }
 }
