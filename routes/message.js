@@ -2,7 +2,7 @@ const router=require('express').Router();
 const MessageController=require('../controllers/messageController');
 const auth=require('../middleware/auth');
 
-router.post('/',auth.verifyToken,MessageController.creatMessage);
+router.post('/create',auth.verifyTokenAndRole,MessageController.creatMessage);
 //Get
 router.get('/:id',auth.verifyTokenAndRole,MessageController.gettOne)
 //GetAll

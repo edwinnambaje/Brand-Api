@@ -135,7 +135,7 @@ const deleteMessageById = {
 
 
 exports.messageRouteDocs = {
-    "/api/messages":{
+    "/api/messages/create":{
         post:sendMessage,
     },
     "/api/messages/{id}":{
