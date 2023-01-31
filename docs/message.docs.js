@@ -67,12 +67,12 @@ const sendMessage = {
                         fullName:{
                             type:"string",
                             description:"Your name",
-                            example:"Kaleb curry"
+                            example:"edwin"
                         },
                         email:{
                             type:"string",
                             description:"your email",
-                            example:"kalebcurry@gmail.com"
+                            example:"edwin@gmail.com"
                         },
                         message:{
                             type:"string",
