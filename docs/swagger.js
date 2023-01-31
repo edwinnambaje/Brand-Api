@@ -24,7 +24,7 @@ const options = {
     ],
     tags: [
       { name: 'User', description: 'User Routes' },
-      { name:'Message' , description:"Message Routes"},
+      { name:'Contact' , description:"Message Routes"},
       { name: 'Blog', description: 'Blog Routes' },
     ],
     components: {

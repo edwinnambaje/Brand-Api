@@ -1,6 +1,6 @@
-const listAllMessage = {
-    tags:['Message'],
-    description:"List all Messages",
+const listAllContacts = {
+    tags:['Contact'],
+    description:"List all contacts",
     security: [
         {
           token: [],
@@ -23,8 +23,8 @@ const listAllMessage = {
 }
 
 const messageById = {
-    tags:['Message'],
-    description:"get the message by id",
+    tags:['Contact'],
+    description:"get the contact/message by id",
     parameters:[
         {
             name:"id",
@@ -56,7 +56,7 @@ const messageById = {
 }
 
 const sendMessage = {
-    tags:['Message'],
+    tags:['Contact'],
     description:"Send message",
     requestBody:{
         content:{
@@ -64,15 +64,15 @@ const sendMessage = {
                 schema:{
                     type:"object",
                     properties:{
-                        username:{
+                        fullName:{
                             type:"string",
                             description:"Your name",
-                            example:"Nambaje Edwin"
+                            example:"Kaleb curry"
                         },
                         email:{
                             type:"string",
                             description:"your email",
-                            example:"Edwin@gmail.com"
+                            example:"kalebcurry@gmail.com"
                         },
                         message:{
                             type:"string",
@@ -85,7 +85,7 @@ const sendMessage = {
         }
     },
     responses:{
-        200:{
+        201:{
             description:"OK",
             content:{
                 "application/json":{
@@ -100,9 +100,9 @@ const sendMessage = {
     }
 }
 
-const deleteMessageById = {
-    tags:['Message'],
-    description:"Delete the message by id",
+const deleteContactById = {
+    tags:['Contact'],
+    description:"Delete the contact/message by id",
     parameters:[
         {
             name:"id",
@@ -135,16 +135,16 @@ const deleteMessageById = {
 
 
 exports.messageRouteDocs = {
-    "/api/messages/create":{
-        post:sendMessage,
+    "/api/messages/all":{
+        get:listAllContacts
     },
     "/api/messages/{id}":{
         get:messageById
     },
-    "/api/messages":{
-        get:listAllMessage
+    "/api/messages/create":{
+        post:sendMessage,
     },
     "/api/messages/delete/{id}":{
-        delete:deleteMessageById
+        delete:deleteContactById
     }
 }
