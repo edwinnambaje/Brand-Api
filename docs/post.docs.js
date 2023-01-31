@@ -153,7 +153,7 @@ const updateBlogPost = {
                         title:{
                             type:"string",
                         },
-                        description:{
+                        desc:{
                             type:"string",
                         },
                         image:{

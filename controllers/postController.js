@@ -19,11 +19,11 @@ exports.updatPost=async(req,res)=>{
     try {
         const post=await Post.findById(req.params.id);
         if(!post) return res.status(404).json({status:"fail",error:"The blog is not found"})
-        await cloudinary.uploader.destroy(blog.image);
+        await cloudinary.uploader.destroy(post.image);
         const result = await cloudinary.uploader.upload(req.file.path);
         const updatedBlog = await Post.findByIdAndUpdate(req.params.id,{$set:{
-            title:req.body.title ? req.body.title : post.title,
-            description:req.body.desc ? req.body.desc : post.desc,
+            title:req.body.title,
+            desc:req.body.desc,
             image:result.secure_url
           }},{new:true});
           res.status(200).json({

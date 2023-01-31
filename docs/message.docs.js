@@ -1,6 +1,6 @@
-const listAllContacts = {
-    tags:['Contact'],
-    description:"List all contacts",
+const listAllMessages = {
+    tags:['Message'],
+    description:"List all messages",
     security: [
         {
           token: [],
@@ -23,7 +23,7 @@ const listAllContacts = {
 }
 
 const messageById = {
-    tags:['Contact'],
+    tags:['Message'],
     description:"get the contact/message by id",
     parameters:[
         {
@@ -56,7 +56,7 @@ const messageById = {
 }
 
 const sendMessage = {
-    tags:['Contact'],
+    tags:['Message'],
     description:"Send message",
     requestBody:{
         content:{
@@ -85,7 +85,7 @@ const sendMessage = {
         }
     },
     responses:{
-        201:{
+        200:{
             description:"OK",
             content:{
                 "application/json":{
@@ -100,8 +100,8 @@ const sendMessage = {
     }
 }
 
-const deleteContactById = {
-    tags:['Contact'],
+const deleteMessagebyId = {
+    tags:['Message'],
     description:"Delete the contact/message by id",
     parameters:[
         {
@@ -135,16 +135,16 @@ const deleteContactById = {
 
 
 exports.messageRouteDocs = {
-    "/api/messages/all":{
-        get:listAllContacts
+    "/api/messages/create":{
+        post:sendMessage,
+    },
+    "/api/messages":{
+        get:listAllMessages
     },
     "/api/messages/{id}":{
         get:messageById
     },
-    "/api/messages/create":{
-        post:sendMessage,
-    },
     "/api/messages/delete/{id}":{
-        delete:deleteContactById
+        delete:deleteMessagebyId
     }
 }
