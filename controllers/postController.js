@@ -67,7 +67,7 @@ exports.gettAll=async(req,res)=>{
         }
         else{
             posts=await Post.find()
-            .populate('comments','text created');
+            .populate('comments');
         }
         res.status(200).json(posts); 
     } 

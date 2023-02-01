@@ -1,25 +1,30 @@
 
-const Posts=require('../models/Posts');
-const Comment=require('../models/Comment');
-exports.postComment = async (req, res) => {
-    try {
-        const comment = {
-            text:req.body.text
-        }
-        const post = await Posts.findOne({_id: req.params.id });
-        if (!post) {
-        res.status(500).json({message:"Post not found"})       
-        }
-        Posts.findByIdAndUpdate(req.body.postId,{
-            $push:{comments:comment}
-        },{
-            new:true
-        })
-        // await Posts.updateOne({_id: post._id},{
-        //     comments:[...post.comments,req.body]
-        // })
-        res.status(200).json({message:'Commented'})
-    }catch (err) {
-      res.status(500).json({message:"edwin"})
-    }
+const Post=require('../models/Posts');
+const Comment=require('../models/Comment')
+exports.createComment=async (req, res) => {
+    //Find a POst
+    const post = await Post.findOne({ _id: req.params.id });
+
+  //Create a Comment
+  const comment = new Comment();
+  comment.name = req.body.name;
+  comment.comment = req.body.comment;
+  comment.post = post._id;
+  await comment.save();
+
+  // Associate Post with comment
+  post.comments.push(comment);
+  await post.save();
+
+  res.send(comment);
+};
+exports.getComment=async (req, res) => {
+    const post = await Post.findOne({ _id: req.params.id }).populate(
+      "comments"
+    );
+    res.send(post);
+}
+exports.deleteComment=async (req, res) => {
+    await Comment.findByIdAndRemove(req.params.id);
+    res.send({ message: "Comment Successfully Deleted" });
 }
