@@ -15,7 +15,6 @@ exports.createComment=async (req, res) => {
   // Associate Post with comment
   post.comments.push(comment);
   await post.save();
-
   res.send(comment);
 };
 exports.getComment=async (req, res) => {
