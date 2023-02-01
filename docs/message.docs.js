@@ -24,7 +24,7 @@ const listAllMessages = {
 
 const messageById = {
     tags:['Message'],
-    description:"get the contact/message by id",
+    description:"get the message by id",
     parameters:[
         {
             name:"id",
@@ -102,7 +102,7 @@ const sendMessage = {
 
 const deleteMessagebyId = {
     tags:['Message'],
-    description:"Delete the contact/message by id",
+    description:"Delete the message by id",
     parameters:[
         {
             name:"id",
