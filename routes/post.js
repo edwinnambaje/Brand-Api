@@ -1,4 +1,6 @@
 const PostController = require('../controllers/postController');
+const CommentController = require('../controllers/commentController');
+const LikeController = require('../controllers/likeController');
 const router=require('express').Router();
 const auth=require('../middleware/auth');
 const upload=require('../helpers/multer')
@@ -14,5 +16,9 @@ router.put('/update/:id',upload.upload.single('image'),auth.verifyTokenAndRole,P
 router.delete('/delete/:id',auth.verifyTokenAndRole,PostController.deletPost);
 //Get by id
 router.get('/:id',PostController.gettPost);
-
+//like
+router.post('/:id/like', LikeController.like);
+router.post('/:id/unlike', LikeController.unlike);
+//comment
+router.put('/:id/comment', CommentController.postComment);
 module.exports=router;

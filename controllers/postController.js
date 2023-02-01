@@ -45,7 +45,8 @@ exports.deletPost=async(req,res)=>{
 }
 exports.gettPost=async(req,res)=>{
     try {
-        const post=await Post.findById(req.params.id);
+        const post=await Post.findById(req.params.id)
+        .populate('comments','text created');
         res.status(200).json(post);
     } catch (error) {
         res.status(500).json(error)
@@ -65,7 +66,8 @@ exports.gettAll=async(req,res)=>{
             }});
         }
         else{
-            posts=await Post.find();
+            posts=await Post.find()
+            .populate('comments','text created');
         }
         res.status(200).json(posts); 
     } 
