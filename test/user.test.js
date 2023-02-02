@@ -3,8 +3,8 @@ const request =require ("supertest");
 const app=require("../app");
 let token;
 const updateUser = {
-  username: 'edwin',
-  email: 'adminss@gmail.com',
+  username: 'edwin70',
+  email: 'adminss70@gmail.com',
   password: 'admin12345',
 };
 
@@ -13,9 +13,8 @@ describe('\ntesting users routes', () => {
     describe('POST api/auth/register', () => {
         test('should signup the created account', async () => {
             const res = await request(app).post('/api/auth/register').send({
-                email: "email11@test.com",
-                username: "testing123",
-
+                email: "email1170@test.com",
+                username: "testing12370",
                 password: "Test@123",
                 role:"admin"
             })
@@ -44,7 +43,7 @@ describe('\ntesting users routes', () => {
     describe('POST api/users/login', () => {
         test('should return the token of user who logged account', async () => {
             const res = await request(app).post('/api/auth/login').send({
-                email: "email11@test.com",
+                email: "email1170@test.com",
                 password: "Test@123"
             })
             token = res.body.token;
