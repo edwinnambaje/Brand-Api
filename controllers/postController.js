@@ -10,9 +10,9 @@ exports.creatPost=async(req,res)=>{
             image:result.secure_url,
         });
         await post.save();
-        res.status(201).json(post);
+        return res.status(201).json(post);
     } catch (error) {
-        res.status(500).json(error);
+        return es.status(500).json(error);
     }
 }
 exports.updatPost=async(req,res)=>{

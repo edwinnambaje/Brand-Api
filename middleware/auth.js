@@ -2,7 +2,7 @@ const verify=require('../helpers/jwt')
 
 const verifyToken = (req,res,next) =>{
     try {
-        const authHeader = req.headers['authorization'];
+        const authHeader = req.headers['authorization']|| req.headers.token;
         if(!authHeader){
          res.status(401).json({status:"error",error:"You are not authenticated please"});
         }
@@ -12,7 +12,7 @@ const verifyToken = (req,res,next) =>{
         req.user = verified;
         next();
     } catch (error) {
-        res.status(401).json({status:"error",error:error.message});
+        res.status(401).json({status:"error"});
     }
 }
 const verifyTokenAndRole = (req,res,next) =>{

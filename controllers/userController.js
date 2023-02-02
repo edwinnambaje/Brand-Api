@@ -33,7 +33,7 @@ exports.gettUser=async(req,res)=>{
         const {password,...others}=user._doc;
         res.status(200).json(others);
     } catch (error) {
-        res.status(500).json(error)
+        res.status(401).json(error)
     }
 }
 exports.gettAll=async(req,res)=>{

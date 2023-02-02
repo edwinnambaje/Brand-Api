@@ -10,7 +10,7 @@ router.post('/register',async(req,res)=>{
         await user.save();
         res.status(200).json({status:"success",data:user});
       } catch (error) {
-        res.status(401).json({status:"fail", error: error.message });
+        res.status(400).json({status:"fail", error: error.message });
       }
 })
 router.post('/login',async(req,res)=>{
