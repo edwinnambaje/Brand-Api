@@ -12,7 +12,7 @@ exports.creatPost=async(req,res)=>{
         await post.save();
         return res.status(201).json(post);
     } catch (error) {
-        return es.status(500).json(error);
+        return es.status(500).json({message:error.message});
     }
 }
 exports.updatPost=async(req,res)=>{
