@@ -73,14 +73,12 @@ describe('\ntesting users routes', () => {
         test('should return user info', async () => {
             const res = await request(app).get('/api/user').
             set('token', `Bearer ${token}`)
-            console.log(res.body)
             expect(res.statusCode).toBe(200)
             expect(typeof res.body).toBe('object')
         })
         test('should return single user info', async () => {
             const res = await request(app).get(`/api/user/${id}`).
             set('token', `Bearer ${token}`)
-            console.log(res.body)
             expect(res.statusCode).toBe(200)
             expect(typeof res.body).toBe('object')
         })

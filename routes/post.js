@@ -18,9 +18,9 @@ router.delete('/delete/:id',auth.verifyTokenAndRole,PostController.deletPost);
 router.get('/:id',PostController.gettPost);
 //like
 router.post('/:id/like', LikeController.like);
-router.post('/:id/unlike', LikeController.unlike);
+router.put('/:id/unlike', LikeController.unlike);
 //comment
 router.post("/:id/comment",CommentController.createComment);
-router.get("/:id/comment",CommentController.getComment);
-// router.delete("/comment/:commentId",CommentController.deleteComment);
+router.get("/comments",CommentController.getComment);
+router.delete("/delete/comment/:id",CommentController.deleteComment);
 module.exports=router;

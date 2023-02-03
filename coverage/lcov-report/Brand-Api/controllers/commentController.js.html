@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>5/15</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>5/15</span>
             </div>
         
             
@@ -91,10 +91,23 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -102,21 +115,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
@@ -125,12 +131,15 @@ const Comment=require('../models/Comment')
 exports.createComment=<span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
     //Find a POst
     const post = <span class="cstat-no" title="statement not covered" >await Post.findOne({ _id: req.params.id });</span>
-&nbsp;
   //Create a Comment
-  const comment = <span class="cstat-no" title="statement not covered" >new Comment();</span>
-<span class="cstat-no" title="statement not covered" >  comment.name = req.body.name;</span>
-<span class="cstat-no" title="statement not covered" >  comment.comment = req.body.comment;</span>
-<span class="cstat-no" title="statement not covered" >  comment.post = post._id;</span>
+  const comment = <span class="cstat-no" title="statement not covered" >new Comment({</span>
+    name:req.body.name,
+    comment:req.body.comment,
+    post:post._id
+  });
+//   comment.name = req.body.name;
+//   comment.comment = req.body.comment;
+//   comment.post = post._id;
 <span class="cstat-no" title="statement not covered" >  await comment.save();</span>
 &nbsp;
   // Associate Post with comment
@@ -145,7 +154,7 @@ exports.getComment=<span class="fstat-no" title="function not covered" >as</span
 <span class="cstat-no" title="statement not covered" >    res.send(post);</span>
 }
 exports.deleteComment=<span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    await Comment.findByIdAndRemove(req.params.id);</span>
+    const com=<span class="cstat-no" title="statement not covered" >await Comment.findByIdAndDelete(req.params.id);</span>
 <span class="cstat-no" title="statement not covered" >    res.send({ message: "Comment Successfully Deleted" });</span>
 }</pre></td></tr></table></pre>
 
@@ -154,7 +163,7 @@ exports.deleteComment=<span class="fstat-no" title="function not covered" >as</s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-02T21:21:45.540Z
+                at 2023-02-03T08:10:41.821Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
