@@ -23,6 +23,7 @@
   "description": "Backend",
   "main": "index.js",
   "scripts": {
+    "build": "mc-scripts build",
     "start": "nodemon index.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --env=node --coverage",
     "dev": "env-cmd ./.env nodemon"
