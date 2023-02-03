@@ -350,12 +350,6 @@ exports.blogRouteDocs = {
         put:unlikeBlog
     },
     "/api/posts/{id}/comment":{
-        post:postComment
-    },
-    "/api/posts/comments":{
-        get:getComment
-    },
-    "/api/posts/delete/comment/{id}":{
-        delete:deleteComment
+        put:postComment
     }
 }
