@@ -5,9 +5,11 @@ const router=require('express').Router();
 const auth=require('../middleware/auth');
 const upload=require('../helpers/multer')
 
+const {blogSchema}=require('../validation/blogSchema')
+const {validate}=require('../middleware/validate');
 
 //create
-router.post('/',upload.upload.single('image'),auth.verifyTokenAndRole,PostController.creatPost);
+router.post('/',upload.upload.single('image'),validate(blogSchema),auth.verifyTokenAndRole,PostController.creatPost);
 //get all
 router.get('/all',PostController.gettAll);
 //update
