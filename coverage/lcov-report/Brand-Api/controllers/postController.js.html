@@ -139,10 +139,10 @@
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -156,7 +156,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -175,25 +175,25 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -227,7 +227,7 @@ exports.creatPost=<span class="fstat-no" title="function not covered" >as</span>
             image:result.secure_url,
         });
 <span class="cstat-no" title="statement not covered" >        await post.save();</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(201).json(post);</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(200).json(post);</span>
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        return es.status(500).json({message:error.message});</span>
     }
@@ -243,30 +243,30 @@ exports.updatPost=<span class="fstat-no" title="function not covered" >as</span>
             desc:req.body.desc,
             image:result.secure_url
           }},{new:true});
-<span class="cstat-no" title="statement not covered" >          res.status(200).json({</span>
+<span class="cstat-no" title="statement not covered" >          return res.status(200).json({</span>
             status:"success",
             data:updatedBlog
           });
         } catch (error) {
-<span class="cstat-no" title="statement not covered" >          res.status(500).json({status:"error", error: error.message });</span>
+<span class="cstat-no" title="statement not covered" >            return res.status(500).json({status:"error", error: error.message });</span>
         }
 }
 exports.deletPost=async(req,res)=&gt;{
     try {
         await Post.findByIdAndDelete(req.params.id);
-        res.status(200).json({status:"success",data:null,message:"the blog deleted"});  
+        return res.status(200).json({status:"success",data:null,message:"the blog deleted"});  
       } 
       catch (error) {
-<span class="cstat-no" title="statement not covered" >          res.status(401).json({status:"error",error:error.message})</span>
+<span class="cstat-no" title="statement not covered" >        return  res.status(401).json({status:"error",error:error.message})</span>
       }
 }
 exports.gettPost=async(req,res)=&gt;{
     try {
         const post=await Post.findById(req.params.id)
         .populate('comments','text created');
-        res.status(200).json(post);
+        return  res.status(200).json(post);
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >        res.status(500).json(error)</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(500).json(error)</span>
     }
 }
 exports.gettAll=async(req,res)=&gt;{
@@ -286,10 +286,10 @@ exports.gettAll=async(req,res)=&gt;{
             posts=await Post.find()
             .populate('comments');
         }
-        res.status(200).json(posts); 
+        return  res.status(200).json(posts); 
     } 
     catch (error) {
-<span class="cstat-no" title="statement not covered" >        res.status(401).json(error);</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(401).json(error);</span>
     }
 }</pre></td></tr></table></pre>
 
@@ -298,7 +298,7 @@ exports.gettAll=async(req,res)=&gt;{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-03T08:41:13.895Z
+                at 2023-02-03T09:57:24.506Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

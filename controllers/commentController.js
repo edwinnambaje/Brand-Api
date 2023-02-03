@@ -12,7 +12,7 @@ exports.createComment=async (req, res) => {
     post:req.params.id
   });
   await comment.save();
-  // Associate Post with comment
+  //Associate Post with comment
   post.comments.push(comment);
   await post.save();
   return res.send(comment);

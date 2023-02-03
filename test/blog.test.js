@@ -7,7 +7,7 @@ const comment={
     name:"edwin",
     comment:"this is wonderful"
 }
-// jest.setTimeout(100000);
+jest.setTimeout(100000);
 
   describe('Blogs Operations', () => {
     test('should signup the created account', async () => {
@@ -46,7 +46,7 @@ const comment={
             expect(res.statusCode).toBe(200)
     })
     test('should comment on a post', async () => {
-        const res = await request(app).post(`/api/posts/comment/${id}`)
+        const res = await request(app).put(`/api/posts/${id}/comment`)
         .send(comment)
         console.log(res.body)
         expect(res.statusCode).toBe(200)
