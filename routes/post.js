@@ -18,9 +18,8 @@ router.delete('/delete/:id',auth.verifyTokenAndRole,PostController.deletPost);
 router.get('/:id',PostController.gettPost);
 //like
 router.post('/:id/like', LikeController.like);
+//unlike
 router.put('/:id/unlike', LikeController.unlike);
 //comment
-router.post("/:id/comment",CommentController.createComment);
-router.get("/comments",CommentController.getComment);
-router.delete("/delete/comment/:id",CommentController.deleteComment);
+router.put("/:id/comment",CommentController.createComment);
 module.exports=router;

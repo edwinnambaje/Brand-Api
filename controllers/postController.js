@@ -10,7 +10,7 @@ exports.creatPost=async(req,res)=>{
             image:result.secure_url,
         });
         await post.save();
-        return res.status(201).json(post);
+        return res.status(200).json(post);
     } catch (error) {
         return es.status(500).json({message:error.message});
     }
@@ -26,30 +26,30 @@ exports.updatPost=async(req,res)=>{
             desc:req.body.desc,
             image:result.secure_url
           }},{new:true});
-          res.status(200).json({
+          return res.status(200).json({
             status:"success",
             data:updatedBlog
           });
         } catch (error) {
-          res.status(500).json({status:"error", error: error.message });
+            return res.status(500).json({status:"error", error: error.message });
         }
 }
 exports.deletPost=async(req,res)=>{
     try {
         await Post.findByIdAndDelete(req.params.id);
-        res.status(200).json({status:"success",data:null,message:"the blog deleted"});  
+        return res.status(200).json({status:"success",data:null,message:"the blog deleted"});  
       } 
       catch (error) {
-          res.status(401).json({status:"error",error:error.message})
+        return  res.status(401).json({status:"error",error:error.message})
       }
 }
 exports.gettPost=async(req,res)=>{
     try {
         const post=await Post.findById(req.params.id)
         .populate('comments','text created');
-        res.status(200).json(post);
+        return  res.status(200).json(post);
     } catch (error) {
-        res.status(500).json(error)
+        return res.status(500).json(error)
     }
 }
 exports.gettAll=async(req,res)=>{
@@ -69,9 +69,9 @@ exports.gettAll=async(req,res)=>{
             posts=await Post.find()
             .populate('comments');
         }
-        res.status(200).json(posts); 
+        return  res.status(200).json(posts); 
     } 
     catch (error) {
-        res.status(401).json(error);
+        return res.status(401).json(error);
     }
 }

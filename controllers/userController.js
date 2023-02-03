@@ -22,18 +22,18 @@ exports.deletUser=async(req,res)=>{
           return res.status(404).json({status:"fail",message:"The user not found"});
         }
         await User.findByIdAndDelete(req.params.id);
-        res.status(200).json({status:"success",data:null,message:'User deleted!'});
+        return res.status(200).json({status:"success",data:null,message:'User deleted!'});
       } catch (error) {
-        res.status(500).json({status:"error", error: error.message });
+        return res.status(500).json({status:"error", error: error.message });
       }
     }
 exports.gettUser=async(req,res)=>{
     try {
         const user=await User.findById(req.params.id);
         const {password,...others}=user._doc;
-        res.status(200).json(others);
+        return res.status(200).json(others);
     } catch (error) {
-        res.status(401).json(error)
+        return  res.status(401).json(error)
     }
 }
 exports.gettAll=async(req,res)=>{
@@ -46,9 +46,9 @@ exports.gettAll=async(req,res)=>{
         else{
             users=await User.find();
         }
-        res.status(200).json(users); 
+        return  res.status(200).json(users); 
     } 
     catch (error) {
-        res.status(401).json(error);
+        return  res.status(401).json(error);
     }
 }
