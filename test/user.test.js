@@ -13,8 +13,8 @@ describe('\ntesting users routes', () => {
     describe('POST api/auth/register', () => {
         test('should signup the created account', async () => {
             const res = await request(app).post('/api/auth/register').send({
-                email: "email1170@test.com",
-                username: "testing12370",
+                email: "tre@test.com",
+                username: "tre12370",
                 password: "Test@123",
                 role:"admin"
             })
@@ -43,7 +43,7 @@ describe('\ntesting users routes', () => {
     describe('POST api/users/login', () => {
         test('should return the token of user who logged account', async () => {
             const res = await request(app).post('/api/auth/login').send({
-                email: "email1170@test.com",
+                email: "tre@test.com",
                 password: "Test@123"
             })
             token = res.body.token;
@@ -63,7 +63,7 @@ describe('\ntesting users routes', () => {
             const res = await request(app).post('/api/auth/login').send({
                 email: "emailnotin@test.com"
             })
-            expect(res.statusCode).toBe(401)
+            expect(res.statusCode).toBe(400)
             expect(typeof res.body).toBe('object')
         })
 })

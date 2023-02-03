@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675427824837" clover="3.2.0">
-  <project timestamp="1675427824837" name="All files">
-    <metrics statements="332" coveredstatements="259" conditionals="39" coveredconditionals="18" methods="33" coveredmethods="22" elements="404" coveredelements="299" complexity="0" loc="332" ncloc="332" packages="8" files="28" classes="28"/>
+<coverage generated="1675445421346" clover="3.2.0">
+  <project timestamp="1675445421346" name="All files">
+    <metrics statements="335" coveredstatements="264" conditionals="39" coveredconditionals="18" methods="33" coveredmethods="22" elements="407" coveredelements="304" complexity="0" loc="335" ncloc="335" packages="8" files="29" classes="29"/>
     <package name="Brand-Api">
       <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="app.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/app.js">
@@ -31,7 +31,7 @@
       </file>
     </package>
     <package name="Brand-Api.controllers">
-      <metrics statements="141" coveredstatements="82" conditionals="20" coveredconditionals="7" methods="19" coveredmethods="12"/>
+      <metrics statements="139" coveredstatements="82" conditionals="20" coveredconditionals="7" methods="19" coveredmethods="12"/>
       <file name="categoryController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/categoryController.js">
         <metrics statements="17" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
@@ -53,16 +53,14 @@
         <line num="27" count="0" type="stmt"/>
       </file>
       <file name="commentController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/commentController.js">
-        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
       <file name="likeController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/likeController.js">
         <metrics statements="17" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -300,12 +298,12 @@
       <file name="validate.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/middleware/validate.js">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="2" count="9" type="stmt"/>
-        <line num="3" count="9" type="stmt"/>
-        <line num="4" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="12" type="stmt"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="4" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="11" count="8" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
       </file>
     </package>
@@ -343,7 +341,7 @@
       </file>
     </package>
     <package name="Brand-Api.routes">
-      <metrics statements="66" coveredstatements="62" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="68" coveredstatements="64" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="auth.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/routes/auth.js">
         <metrics statements="26" coveredstatements="22" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
@@ -384,15 +382,17 @@
         <line num="8" count="3" type="stmt"/>
       </file>
       <file name="message.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/routes/message.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
       </file>
       <file name="post.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/routes/post.js">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -427,8 +427,14 @@
       </file>
     </package>
     <package name="Brand-Api.validation">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="blogSchema.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/validation/blogSchema.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+      </file>
+      <file name="messageSchema.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/validation/messageSchema.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>

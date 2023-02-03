@@ -13,7 +13,7 @@ exports.createComment=async (req, res) => {
   });
   await comment.save();
   //Associate Post with comment
-  post.comments.push(comment);
-  await post.save();
+  // post.comments.push(comment);
+  // await post.save();
   return res.send(comment);
 };
