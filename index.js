@@ -4,7 +4,6 @@ const dotenv=require('dotenv');
 const authRoute=require('./routes/auth');
 const userRoute=require('./routes/user');
 const postRoute=require('./routes/post');
-const catRoute=require('./routes/category');
 const messageRoute=require('./routes/message');
 const swaggerDocs=require('./docs/swagger');
 const app=express();
@@ -18,7 +17,6 @@ swaggerDocs(app);
 app.use('/api/auth',authRoute);
 app.use('/api/user',userRoute);
 app.use('/api/posts',postRoute);
-app.use('/api/categories',catRoute)
 app.use('/api/messages',messageRoute);
 let port=process.env.PORT || 5000
 app.listen(port,()=>{
