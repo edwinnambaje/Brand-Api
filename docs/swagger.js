@@ -18,7 +18,7 @@ const options = {
         description: 'Development server',
       },
       {
-        url: 'http://localhost:3000',
+        url: 'https://brand-acqz.onrender.com/',
         description: 'Production server',
       },
     ],
