@@ -64,7 +64,7 @@ const sendMessage = {
                 schema:{
                     type:"object",
                     properties:{
-                        fullName:{
+                        username:{
                             type:"string",
                             description:"Your name",
                             example:"edwin"
