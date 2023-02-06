@@ -6,8 +6,10 @@ const userRoute=require('./routes/user');
 const postRoute=require('./routes/post');
 const messageRoute=require('./routes/message');
 const swaggerDocs=require('./docs/swagger');
+const cors=require('cors')
 const app=express();
 dotenv.config();
+app.use(cors());
 app.use(express.json());
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URL)
