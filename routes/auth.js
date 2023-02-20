@@ -22,17 +22,15 @@ router.post('/register',validate(registerSchema),async(req,res)=>{
 })
 router.post('/login',validate(loginSchema),async(req,res)=>{
     try {
-        const user = await User.findOne({email:req.body.email});
+      const user=await User.findOne({email:req.body.email});
+      console.log(user)
         if(!user) return res.status(401).json({status:"fail",error:"Invalid credentials" });
-        const match = bcrypt.compare(req.body.password, user.password);
+        const match = await bcrypt.compare(req.body.password,user.password);
         if(!match){
-          res.status(401).json({status:"fail",error:"Invalid password" })
-          return;
+          res.status(401).json({status:"fail",error:"Invalid password" });
         }
         const accessToken = jwt.sign({id:user._id,role:user.role})
-        
         res.status(200).json({status:"success",data:user,token:accessToken});
-
       } catch (error) {
         res.status(401).json({status:"fail", error: error.message });
       }
