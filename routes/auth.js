@@ -6,11 +6,16 @@ const {validate}=require('../middleware/validate');
 const {loginSchema,registerSchema}=require('../validation/userSchema')
 router.post('/register',validate(registerSchema),async(req,res)=>{
     try {
-        const user = new User(req.body);
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(user.password,salt)
-        await user.save();
-        res.status(200).json({status:"success",data:user});
+      const salt=await bcrypt.genSalt(10);
+      const hashedPassword=await bcrypt.hash(req.body.password,salt);
+      const user=new User({
+          username:req.body.username,
+          email:req.body.email,
+          password:hashedPassword,
+          role:req.body.role
+      })
+      await user.save();
+      return res.status(200).json({status:"success",message:"User created successfully", data:user})
       } catch (error) {
         res.status(400).json({status:"fail", error: error.message });
       }
@@ -19,12 +24,13 @@ router.post('/login',validate(loginSchema),async(req,res)=>{
     try {
         const user = await User.findOne({email:req.body.email});
         if(!user) return res.status(401).json({status:"fail",error:"Invalid credentials" });
-        const match = await bcrypt.compare(req.body.password,user.password);
+        const match = bcrypt.compare(req.body.password, user.password);
         if(!match){
           res.status(401).json({status:"fail",error:"Invalid password" })
           return;
         }
         const accessToken = jwt.sign({id:user._id,role:user.role})
+        
         res.status(200).json({status:"success",data:user,token:accessToken});
 
       } catch (error) {
