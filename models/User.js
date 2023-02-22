@@ -3,9 +3,11 @@ const mongoose=require('mongoose');
 const UserSchema=new mongoose.Schema({
     username:{
         type:String,
+        unique:true
     },
     email:{
-        type:String
+        type:String,
+        unique:true
     },
     password:{
         type:String,
@@ -13,7 +15,11 @@ const UserSchema=new mongoose.Schema({
     role:{
         type:String,
         default:'user'
-    }
+    },
+    posts: [{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Posts"
+     }]
 },{
     timestamps:true}
 );
