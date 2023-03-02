@@ -12,7 +12,6 @@ router.post('/register',validate(registerSchema),async(req,res)=>{
           username:req.body.username,
           email:req.body.email,
           password:hashedPassword,
-          role:req.body.role
       })
       await user.save();
       return res.status(200).json({status:"success",message:"User created successfully", data:user})
