@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675418244554" clover="3.2.0">
-  <project timestamp="1675418244554" name="All files">
-    <metrics statements="311" coveredstatements="240" conditionals="37" coveredconditionals="16" methods="31" coveredmethods="20" elements="379" coveredelements="276" complexity="0" loc="311" ncloc="311" packages="7" files="25" classes="25"/>
+<coverage generated="1677827287806" clover="3.2.0">
+  <project timestamp="1677827287806" name="All files">
+    <metrics statements="313" coveredstatements="236" conditionals="37" coveredconditionals="16" methods="31" coveredmethods="19" elements="381" coveredelements="271" complexity="0" loc="313" ncloc="313" packages="7" files="25" classes="25"/>
     <package name="Brand-Api">
       <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="app.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/app.js">
@@ -31,7 +31,7 @@
       </file>
     </package>
     <package name="Brand-Api.controllers">
-      <metrics statements="139" coveredstatements="82" conditionals="20" coveredconditionals="7" methods="19" coveredmethods="12"/>
+      <metrics statements="141" coveredstatements="78" conditionals="20" coveredconditionals="7" methods="19" coveredmethods="11"/>
       <file name="categoryController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/categoryController.js">
         <metrics statements="17" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
@@ -53,14 +53,16 @@
         <line num="27" count="0" type="stmt"/>
       </file>
       <file name="commentController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/commentController.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
       </file>
       <file name="likeController.js" path="/Users/andelarwanda/Desktop/Brand/Brand-Api/controllers/likeController.js">
         <metrics statements="17" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>

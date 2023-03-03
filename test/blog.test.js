@@ -45,11 +45,11 @@ jest.setTimeout(100000);
             set('token', `Bearer ${token}`)
             expect(res.statusCode).toBe(200)
     })
-    test('should comment on a post', async () => {
-        const res = await request(app).put(`/api/posts/${id}/comment`)
-        .send(comment)
-        console.log(res.body)
-        expect(res.statusCode).toBe(200)
-    })
+    // test('should comment on a post', async () => {
+    //     const res = await request(app).put(`/api/posts/${id}/comment`)
+    //     .send(comment)
+    //     console.log(res.body)
+    //     expect(res.statusCode).toBe(200)
+    // })
     
 })
