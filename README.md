@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/github/edwinnambaje/Brand-Api/badge.svg?branch=test)](https://coveralls.io/github/edwinnambaje/Brand-Api?branch=test)
