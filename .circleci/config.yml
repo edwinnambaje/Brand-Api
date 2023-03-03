@@ -22,3 +22,6 @@ jobs:
           prefix: coverage
       - store_test_results:
           path: test-results
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=$%7B7DtSVvnKbzEQZUSzXxkjTYCIi6u26qxUg%7D 
